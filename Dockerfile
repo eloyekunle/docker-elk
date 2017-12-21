@@ -12,7 +12,7 @@ RUN apt-get update && \
 RUN \
     wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | apt-key add - && \
     rm -f /etc/apt/sources.list.d/* && \
-    if ! grep "elastic" /etc/apt/sources.list; then echo "deb https://artifacts.elastic.co/packages/5.x/apt stable main" >> /etc/apt/sources.list;fi && \
+    if ! grep "elastic" /etc/apt/sources.list; then echo "deb https://artifacts.elastic.co/packages/6.x/apt stable main" >> /etc/apt/sources.list;fi && \
     apt-get update && \
     apt-get install --no-install-recommends -y elasticsearch logstash kibana && \
     apt-get clean && \
