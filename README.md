@@ -3,7 +3,7 @@ Elasticsearch. Logstash. Kibana.
 
 Creating an ELK stack could not be easier.
 
-**Important:** this image embeds Elasticsearch 5.0, Logstash 5.0, and Kibana 5.0.
+**Important:** this image embeds Elasticsearch 6.1, Logstash 6.1, and Kibana 6.1.
 
 Quick Start
 -----------
@@ -11,7 +11,7 @@ Quick Start
 ```
 $ docker run -p 8080:80 \
     -v /path/to/your/logstash/config:/etc/logstash/conf.d \
-    willdurand/elk
+    playmice/docker-elk
 ```
 
 Then, browse: [http://localhost:8080](http://localhost:8080) (replace
@@ -26,7 +26,7 @@ configuration.
 
 ``` yaml
 elk:
-    image: willdurand/elk
+    image: playmice/docker-elk
     ports:
         - "8080:80"
     volumes:
@@ -51,7 +51,7 @@ Then, use it:
 $ docker run -p 8080:80 \
     -v /path/to/your/logstash/config:/etc/logstash \
     --volumes-from dataelk \
-    willdurand/elk
+    playmice/docker-elk
 ```
 
 If you want to rely on the logstash agent for processing files, you have to
@@ -61,7 +61,7 @@ mount volumes as well, but you should rather only send logs to this container.
 
 ``` yaml
 elk:
-    image: willdurand/elk
+    image: playmice/docker-elk
     ports:
         - "8080:80"
     volumes:
@@ -85,7 +85,7 @@ Forwarder](https://github.com/willdurand/docker-logstash-forwarder):
 
 ``` yaml
 elk:
-    image: willdurand/elk
+    image: playmice/docker-elk
     ports:
         - "80:80"
         - "XX.XX.XX.XX:5043:5043"
