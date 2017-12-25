@@ -1,5 +1,4 @@
 FROM java:8
-MAINTAINER William Durand <william.durand1@gmail.com>
 
 ENV DEBIAN_FRONTEND noninteractive
 ENV ES_SKIP_SET_KERNEL_PARAMETERS true
@@ -32,6 +31,6 @@ RUN mkdir -p /var/log/elasticsearch && \
     chown elasticsearch:elasticsearch /var/log/elasticsearch && \
     chown elasticsearch:elasticsearch /data
 
-EXPOSE 80
+EXPOSE 5601
 
 CMD [ "/usr/bin/supervisord", "-n", "-c", "/etc/supervisor/supervisord.conf" ]
