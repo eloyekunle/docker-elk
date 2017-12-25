@@ -29,6 +29,7 @@ ADD etc/supervisor/conf.d/ /etc/supervisor/conf.d/
 
 RUN mkdir -p /var/log/elasticsearch && \
     mkdir /data && \
+    mkdir -p /var/log/kibana && \
     chown elasticsearch:elasticsearch /var/log/elasticsearch && \
     chown elasticsearch:elasticsearch /data && \
     chown kibana:kibana /var/log/kibana
