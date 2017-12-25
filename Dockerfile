@@ -34,6 +34,6 @@ RUN mkdir -p /var/log/elasticsearch && \
     chown elasticsearch:elasticsearch /data && \
     chown kibana:kibana /var/log/kibana
 
-EXPOSE 5601
+EXPOSE 5601 9200
 
 CMD [ "/usr/bin/supervisord", "-n", "-c", "/etc/supervisor/supervisord.conf" ]
