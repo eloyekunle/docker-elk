@@ -18,7 +18,7 @@ RUN \
     sed -i '/#cluster.name:.*/a cluster.name: logstash' /etc/elasticsearch/elasticsearch.yml && \
     sed -i '/#path.data: \/path\/to\/data/a path.data: /data' /etc/elasticsearch/elasticsearch.yml && \
     sed -i '/#path.logs: \/path\/to\/logs/a path.logs: /var/log/elasticsearch' /etc/elasticsearch/elasticsearch.yml && \
-    sed -i 's/#server\.port: 5601/server.port: 5601/' /etc/kibana/kibana.yml && \
+    sed -i 's/#server\.port: 5601/server.port: 80/' /etc/kibana/kibana.yml && \
     sed -i 's/#server\.host: "localhost"/server.host: 0\.0\.0\.0/' /etc/kibana/kibana.yml
 
 # Logstash plugins
@@ -31,6 +31,6 @@ RUN mkdir -p /var/log/elasticsearch && \
     chown elasticsearch:elasticsearch /var/log/elasticsearch && \
     chown elasticsearch:elasticsearch /data
 
-EXPOSE 5601
+EXPOSE 80
 
 CMD [ "/usr/bin/supervisord", "-n", "-c", "/etc/supervisor/supervisord.conf" ]
