@@ -20,7 +20,7 @@ RUN \
     sed -i '/#path.logs: \/path\/to\/logs/a path.logs: /var/log/elasticsearch' /etc/elasticsearch/elasticsearch.yml && \
     sed -i 's/#server\.port: 5601/server.port: 5601/' /etc/kibana/kibana.yml && \
     sed -i 's/#server\.host: "localhost"/server.host: 0\.0\.0\.0/' /etc/kibana/kibana.yml && \
-    sed -i '/#logging.dest: stdout/logging.dest: /var/log/kibana/kibana.log/' /etc/kibana/kibana.yml
+    sed -i '/#logging.dest: stdout/logging.dest: /var/log/kibana/kibana.log' /etc/kibana/kibana.yml
 
 # Logstash plugins
 RUN /usr/share/logstash/bin/logstash-plugin install logstash-filter-translate
